@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Container from './components/Container';
 
 const Item = ({ item }) => {
 
-  
+
 
 
   return (
@@ -20,14 +20,10 @@ const Item = ({ item }) => {
 function App() {
   const [products, setProducts] = useState([])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('products.json')
-      const data = await response.json()
-      setProducts(data)
-    }
-    fetchData()
-  }, [])
+    const response = fetch('products.json')
+    const data = response.json()
+    setProducts(data)
+  
 
   const filteredProducts = products.filter(product => product.category === 'smartphones')
 
