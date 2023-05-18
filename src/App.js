@@ -15,7 +15,7 @@ const Item = ({ item }) => {
 function App() {
   
 
-  const response = ('src/products.json')
+  const response = fetch('src/products.json')
   const data = response.json()
   const filteredProducts = data.filter(product => product.category === 'smartphones')
 
