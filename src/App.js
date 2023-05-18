@@ -1,7 +1,6 @@
 import Container from './components/Container';
 
 const Item = ({ item }) => {
-
   return (
     <li className='item' data-testid='product-item'>
       <img src={item.thumbnail} alt={item.title}></img>
@@ -16,9 +15,8 @@ const Item = ({ item }) => {
 function App() {
   
 
-    const response = fetch('products.json')
-    const data = response.json()
-
+  const response = fetch('products.json')
+  const data = response.json()
   const filteredProducts = data.filter(product => product.category === 'smartphones')
 
   return (
@@ -26,9 +24,10 @@ function App() {
       <ul className='list' data-testid='product-list'>
         {
           filteredProducts.map(item => (
-            <Item key={item.id} item={item} />
+            Item(item)
           ))
         }
+        <Item />
       </ul>
     </Container>
   );
