@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Container from './components/Container';
+import products from './products.json'
 
 const Item = ({ item }) => {
   return (
@@ -14,18 +15,14 @@ const Item = ({ item }) => {
 }
 
 function App() {
+  const [productsList, setProductsList] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('src/products.json');
-      const data = await response.json();
-      const filteredData = data.filter(product => product.category === 'smartphones');
-      setFilteredProducts(filteredData);
-    };
-
-    fetchData();
-  }, []);
+    setProductsList(products)
+    const filter = productsList.filter(product => product.category === 'smartphones')
+    setFilteredProducts(filter)
+  })
 
   return (
     <Container>
