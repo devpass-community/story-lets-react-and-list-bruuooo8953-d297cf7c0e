@@ -29,7 +29,7 @@ function App() {
     fetchData()
   }, [])
 
-  const item = products.filter(product => product.category === 'item')
+  const item = products.filter(product => product.category === 'smartphones')
 
   return (
     <Container>
