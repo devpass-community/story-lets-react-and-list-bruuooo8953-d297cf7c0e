@@ -26,7 +26,7 @@ function App() {
       <ul className='list' data-testid='product-list'>
         {
           filteredProducts.map(item => (
-            <Item item={item} />
+            <Item key={item.id} item={item} />
           ))
         }
       </ul>
