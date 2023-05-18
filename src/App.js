@@ -29,13 +29,13 @@ function App() {
     fetchData()
   }, [])
 
-  const item = products.filter(product => product.category === 'smartphones')
+  const filteredProducts = products.filter(product => product.category === 'smartphones')
 
   return (
     <Container>
       <ul className='list' data-testid='product-list'>
         {
-          item.map(item => (
+          filteredProducts.map(item => (
             <Item item={item} />
           ))
         }
