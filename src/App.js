@@ -1,10 +1,6 @@
-import { useState } from 'react';
 import Container from './components/Container';
 
 const Item = ({ item }) => {
-
-
-
 
   return (
     <li className='item' data-testid='product-item'>
@@ -18,14 +14,12 @@ const Item = ({ item }) => {
 }
 
 function App() {
-  const [products, setProducts] = useState([])
+  
 
     const response = fetch('products.json')
     const data = response.json()
-    setProducts(data)
-  
 
-  const filteredProducts = products.filter(product => product.category === 'smartphones')
+  const filteredProducts = data.filter(product => product.category === 'smartphones')
 
   return (
     <Container>
