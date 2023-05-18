@@ -15,7 +15,7 @@ const Item = ({ item }) => {
 function App() {
   
 
-  const response = fetch('products.json')
+  const response = ('src/products.json')
   const data = response.json()
   const filteredProducts = data.filter(product => product.category === 'smartphones')
 
@@ -24,10 +24,9 @@ function App() {
       <ul className='list' data-testid='product-list'>
         {
           filteredProducts.map(item => (
-            Item(item)
+            <Item item={item} />
           ))
         }
-        <Item />
       </ul>
     </Container>
   );
